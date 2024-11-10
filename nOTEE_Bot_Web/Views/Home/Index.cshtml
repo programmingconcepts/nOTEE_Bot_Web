@@ -1,0 +1,76 @@
+﻿@{
+    ViewBag.Title = "nOTEE_Bot";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link rel="stylesheet" href="~/Content/Site.css">
+</head>
+<body>
+    <div class="chatbot-container">
+        <div id="header">
+            <h1>Chatbot</h1>
+        </div>
+        <div id="chatbot">
+            <div id="conversation">
+                <div class="chatbot-message">
+                    <p class="chatbot-text">Hi! 👋 it''s great to see you!</p>
+                </div>
+            </div>
+            <message-container>
+                <input id="input-field" name="input-field" type="text" placeholder="Type your message here">
+                <button id="submit-button" onclick="Chat()" type="button">
+                    Send
+                </button>
+            </message-container>
+        </div>
+
+    </div>
+    <script src="~/Scripts/jquery-3.7.0.min.js"></script>
+
+    <script>
+        function Chat() {
+            var InputText = $('#input-field').val();
+            $('#input-field').val("Generating Response...");
+            var data = {
+                'InputText': InputText,
+            };
+
+            var currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+            // Add user input to conversation
+            let message = document.createElement("div");
+            message.classList.add("chatbot-message", "user-message");
+            message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${InputText}</p>`;
+            conversation.appendChild(message);
+
+            $.ajax({
+                type: 'POST',
+                url: '/Home/Chat',
+                dataType: 'JSON',
+                contentType: 'application/json; charset: utf-8',
+                data: JSON.stringify(data),
+
+                success: function (data_received) {
+
+                    currentTime = new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+                    // Add chatbot response to conversation
+                    message = document.createElement("div");
+                    message.classList.add("chatbot-message", "chatbot");
+                    message.innerHTML = `<p class="chatbot-text" sentTime="${currentTime}">${data_received.Reply}</p>`;
+                    conversation.appendChild(message);
+                    message.scrollIntoView({ behavior: "smooth" });
+
+                    $('#input-field').val("");
+                }
+            });
+        }
+    </script>
+</body>
+</html>

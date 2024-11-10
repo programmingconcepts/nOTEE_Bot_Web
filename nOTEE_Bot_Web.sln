@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "nOTEE_Bot_Web", "nOTEE_Bot_Web\nOTEE_Bot_Web.csproj", "{CBA19653-D432-4C40-8BE7-8373D65ED94C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA19653-D432-4C40-8BE7-8373D65ED94C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA19653-D432-4C40-8BE7-8373D65ED94C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA19653-D432-4C40-8BE7-8373D65ED94C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA19653-D432-4C40-8BE7-8373D65ED94C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FED35D4A-E0D4-4B16-B83C-D303E65D239C}
+	EndGlobalSection
+EndGlobal
